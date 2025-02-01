@@ -1,0 +1,38 @@
+.startpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 750px;
+  margin: 50px;
+  box-shadow: 5px 5px 5px 2px rgba(68,68,68,0.75);
+  -webkit-box-shadow: 5px 5px 5px 2px rgba(68,68,68,0.75);
+  -moz-box-shadow: 5px 5px 5px 2px rgba(68,68,68,0.75);
+  background-color: white;
+  padding: 15px;
+}
+
+.sp-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sp-logo {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.sp-loginbutton {
+  border: none;
+  margin: 5px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  background-color: #ff5500;
+  font-size: 1.2em;
+}
+
+.sp-loginbutton:hover {
+  background-color: #ff843d;
+}
