@@ -24,7 +24,7 @@
   margin-bottom: 50px;
 }
 
-.sp-loginbutton {
+.spform-button {
   border: none;
   margin: 5px;
   padding: 10px 20px 10px 20px;
@@ -33,6 +33,23 @@
   font-size: 1.2em;
 }
 
-.sp-loginbutton:hover {
+.spform-button:hover {
   background-color: #ff843d;
+}
+
+.sp-register-link {
+  margin-top: 10px;
+}
+
+.spform {
+  display: flex;
+  flex-direction: column;
+}
+
+.spform-input {
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+  padding: 5px;
+  margin-bottom: 5px;
 }
