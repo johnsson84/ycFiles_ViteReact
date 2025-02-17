@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Startpage.css'
 import axios from 'axios';
 
 const Startpage = () => {
   const [loginEnabled, setLoginEnabled] = useState(false);
   const [registerEnabled, setRegisterEnabled] = useState(false);
+  const navigate = useNavigate();
 
   //#region LOGIN
   const loginButton = () => {
@@ -18,7 +20,7 @@ const Startpage = () => {
         <input className='spform-input' type='text' name='email' value={loginFields.email} onChange={(e) => handleLoginFieldChange(e)} placeholder='enter your email...'></input><br></br>
         <label>Password:</label><br></br>
         <input className='spform-input' type='text' name='password' value={loginFields.password} onChange={(e) => handleLoginFieldChange(e)} placeholder='enter your password...'></input><br></br>
-        <button className='spform-button' onClick={() => login()}>Login</button>
+        <button className='spform-button' onClick={(e) => login(e)}>Login</button>
       </form>
     )
   }
@@ -32,7 +34,9 @@ const Startpage = () => {
     setLoginFields((prev) => ({ ...prev, [e.target.name]: e.target.value}));
   }
 
-  const login = async () => {
+  const login = async (e) => {
+    e.preventDefault();
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/auth/login`, 
@@ -41,10 +45,15 @@ const Startpage = () => {
           withCredentials: true,
         });
       console.log(response.data);
+      navigate('/dashboard');
     } catch (err) {
       console.log("Catch: " + err);
     }
   }
+
+  useEffect(() => {
+  //  console.log(loginFields);
+  }, [loginFields])
 
   //#endregion
 
