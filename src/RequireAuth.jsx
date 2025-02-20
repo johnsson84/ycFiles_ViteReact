@@ -8,11 +8,11 @@ function RequireAuth({children, allowedRoles}) {
     const [ loading, setLoading ] = useState(true);
 
     useEffect(() => {
+        // Check if user is logged in.
         const checkAuth = async () => {
             try {
                 const response = await axios.get(
                     `${import.meta.env.VITE_API_URL}/auth/check`, 
-                    loginFields, 
                     {
                         withCredentials: true,
                     });

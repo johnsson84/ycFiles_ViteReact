@@ -19,7 +19,7 @@ const Startpage = () => {
         <label>Email:</label><br></br>
         <input className='spform-input' type='text' name='email' value={loginFields.email} onChange={(e) => handleLoginFieldChange(e)} placeholder='enter your email...'></input><br></br>
         <label>Password:</label><br></br>
-        <input className='spform-input' type='text' name='password' value={loginFields.password} onChange={(e) => handleLoginFieldChange(e)} placeholder='enter your password...'></input><br></br>
+        <input className='spform-input' type='password' name='password' value={loginFields.password} onChange={(e) => handleLoginFieldChange(e)} placeholder='enter your password...'></input><br></br>
         <button className='spform-button' onClick={(e) => login(e)}>Login</button>
       </form>
     )
@@ -73,8 +73,8 @@ const Startpage = () => {
         <label>Email:</label><br></br>
         <input className='spform-input' type='text' name='email' value={registerFields.email} onChange={(e) => handleRegisterFieldChange(e)} placeholder='enter your email...'></input><br></br>
         <label>Password:</label><br></br>
-        <input className='spform-input' type='text' name='password' value={registerFields.password} onChange={(e) => handleRegisterFieldChange(e)} placeholder='enter your password...'></input><br></br>
-        <button className='spform-button'>Register</button>
+        <input className='spform-input' type='password' name='password' value={registerFields.password} onChange={(e) => handleRegisterFieldChange(e)} placeholder='enter your password...'></input><br></br>
+        <button className='spform-button' onClick={(e) => register(e)}>Register</button>
       </form>
     )
   }
@@ -88,8 +88,22 @@ const Startpage = () => {
     password: "",
   });
 
-  const register = () => {
+  const register = async (e) => {
+    e.preventDefault();
 
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/register`,
+        registerFields,
+        {
+          withCredentials: true,
+        });
+      console.log(response.data);
+      navigate('/');
+      window.location.reload();
+    } catch (err) {
+      console.log("Catch: " + err);
+    }
   }
 
   //#endregion
