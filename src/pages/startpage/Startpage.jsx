@@ -108,6 +108,7 @@ const Startpage = () => {
 
   //#endregion
 
+  //#region Page
 	return (
 		<div className="startpage">
       <div className='sp-logo'>
@@ -133,5 +134,6 @@ const Startpage = () => {
 		</div>
 	)
 }
+//#endregion
 
 export default Startpage;
