@@ -113,7 +113,7 @@ const Startpage = () => {
 		<div className="startpage">
       <div className='sp-logo'>
         <h1>ycFiles</h1>
-        <p>Your Cloud Files.</p>
+        <p>your cloud files.</p>
       </div>
       {!loginEnabled && !registerEnabled 
       ? <>

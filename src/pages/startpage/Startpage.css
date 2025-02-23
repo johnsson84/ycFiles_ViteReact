@@ -17,11 +17,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.sp-logo {
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.sp-logo p {
+  margin-top: 5px;
+  color:gray
 }
 
 .spform-button {
