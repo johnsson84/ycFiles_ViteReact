@@ -44,6 +44,7 @@ const Startpage = () => {
         {
           withCredentials: true,
         });
+      localStorage.setItem("user", response.data.username)
       console.log(response.data);
       navigate('/dashboard');
     } catch (err) {
