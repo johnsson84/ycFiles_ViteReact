@@ -1,11 +1,13 @@
 import './Dashboard.css';
 
+import Header from '../../components/header/Header';
+
 const Dashboard = () => {
 
     return (
         <div className='dashboard'>
             <header className='db-header db-general'>
-                <p>Header</p>
+                <Header />
             </header>
             <section className='db-section'>
                 <div className='db-sidebar db-general'>

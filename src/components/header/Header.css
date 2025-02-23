@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.header-appname {
+    flex: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+.header-appname h2 {
+    color: grey;
+    font-weight: 400;
+}
+
+.header-user {
+    padding: 20px 20px 0 20px;
+    display: flex;
+    justify-content: end;
+    align-items:end;
+}
