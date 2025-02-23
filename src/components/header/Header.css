@@ -1,25 +1,37 @@
 .header {
-    display: flex;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  height: 100%;
+  width: 100%;
 }
 
 .header-appname {
-    flex: auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
+  flex: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
 }
 
 .header-appname h2 {
-    color: grey;
-    font-weight: 400;
+  color: grey;
+  font-weight: 400;
 }
 
 .header-user {
-    padding: 20px 20px 0 20px;
-    display: flex;
-    justify-content: end;
-    align-items:end;
+  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+}
+
+.header-logout {
+  border: none;
+  background-color: #ff5500;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+.header-logout:hover {
+  background-color: #ff843d;
 }
