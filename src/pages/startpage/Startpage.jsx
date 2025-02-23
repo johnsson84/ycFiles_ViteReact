@@ -8,6 +8,12 @@ const Startpage = () => {
   const [registerEnabled, setRegisterEnabled] = useState(false);
   const navigate = useNavigate();
 
+  const checkIfLoggedIn = () => {
+    if (localStorage.getItem("user") !== "") {
+      navigate("/dashboard");
+    }
+  }
+
   //#region LOGIN
   const loginButton = () => {
     return (<button className='spform-button' type="button" onClick={() => setLoginEnabled(true)}>Login</button>)
@@ -112,6 +118,7 @@ const Startpage = () => {
   //#region Page
 	return (
 		<div className="startpage">
+      {checkIfLoggedIn()}
       <div className='sp-logo'>
         <h1>ycFiles</h1>
         <p>your cloud files.</p>
