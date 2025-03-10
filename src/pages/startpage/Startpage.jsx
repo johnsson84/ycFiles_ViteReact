@@ -132,6 +132,7 @@ const Startpage = () => {
       ? 
       registerForm()
       : null }
+      <p className='sp-build'>Built with: React + Vite</p>
 		</div>
 	)
 }
