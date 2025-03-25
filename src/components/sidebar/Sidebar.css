@@ -1,0 +1,33 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.sb-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #efefef;
+    padding: 10px;
+    width: 100%;
+}
+.sb-name {
+    margin-bottom: 10px;
+    align-self: center;
+}
+.sb-list {
+    display: flex;
+    flex-direction: column;
+}
+.sb-folder {
+    list-style: none;
+    font-size:large;
+    padding: 10px;
+}
+.sb-selected {
+    background-color: var(--bg);
+    font-weight: 800;
+}

@@ -27,11 +27,9 @@
 
 .header-logout {
   border: none;
-  background-color: #ff5500;
-  color: white;
+  background-color: var(--bg);
   padding: 5px;
-  border-radius: 5px;
 }
 .header-logout:hover {
-  background-color: #ff843d;
+  background-color: var(--hover);
 }

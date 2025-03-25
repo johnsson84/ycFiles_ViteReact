@@ -1,0 +1,66 @@
+.filecontent {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+.fc-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #efefef;
+    padding: 10px;
+    width: 100%;
+}
+.fc-header {
+    display: flex;
+
+}
+.fc-name {
+    margin-right: 10px;
+}
+.fc-addfiles {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.fc-add {
+    display: none;
+    padding: 0 10px 0 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: var(--bg);
+    font-weight: 600;
+    font-size: large;
+}
+.fc-add-show {
+    display:block;
+}
+.fc-add:hover {
+    background-color: var(--hover);
+}
+#fc-input[type="file"] {
+    visibility: hidden;
+}
+.fc-input-label {
+    display: inline-block;
+    background-color: #dbdbdb;
+    padding: 0 10px 0 10px;
+    font-size: large;
+}
+.fc-input-label:hover {
+    background-color: var(--hover);
+}
+.fc-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px;
+    padding: 5px;
+}
+.fc-item {
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    margin-right: 5px;
+}

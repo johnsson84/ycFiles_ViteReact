@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
 import "./Startpage.css";
 import axios from "axios";
 
@@ -75,7 +75,8 @@ const Startpage = () => {
       );
       localStorage.setItem("user", response.data.username);
       console.log(response.data);
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
+      window.location.reload();
     } catch (err) {
       console.log("Catch: " + err);
     }
