@@ -14,7 +14,7 @@ const Header = () => {
           withCredentials: true,
         }
       );
-      localStorage.setItem("user", null);
+      localStorage.clear();
       navigate("/");
     } catch (error) {
       console.log("Logout error: " + error);
