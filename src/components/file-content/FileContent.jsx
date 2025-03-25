@@ -49,6 +49,9 @@ const FileContent = () => {
         }/files/getFiles/${user}/${selectedFolder}`,
         {
           withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
       setFiles(res.data);
@@ -68,16 +71,24 @@ const FileContent = () => {
         <div className="fc-header">
           <h2 className="fc-name">{selectedFolder}:</h2>
           <div className="fc-addfiles">
-                <button className={`fc-add ${file ? 'fc-add-show' : ''}`} onClick={handleUploadClick}>Add</button>
-                <label className="fc-input-label" for="fc-input">Select File</label>
-                <input id="fc-input" type="file" onChange={handleFileChange} />
+            <button
+              className={`fc-add ${file ? "fc-add-show" : ""}`}
+              onClick={handleUploadClick}
+            >
+              Add
+            </button>
+            <label className="fc-input-label" for="fc-input">
+              Select File
+            </label>
+            <input id="fc-input" type="file" onChange={handleFileChange} />
           </div>
         </div>
         <div className="fc-content">
-            {files && files.map((file) => (
-                <div key={file} className="fc-item">
-                    {file}
-                </div>
+          {files &&
+            files.map((file) => (
+              <div key={file} className="fc-item">
+                {file}
+              </div>
             ))}
         </div>
       </div>
