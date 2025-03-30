@@ -4,19 +4,28 @@
     align-items: start;
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 1rem;
 }
 
 .sb-nav {
     display: flex;
     flex-direction: column;
     background-color: #efefef;
-    padding: 10px;
+    padding: 0.5rem;
     width: 100%;
 }
-.sb-name {
-    margin-bottom: 10px;
+.sb-folder-name {
+    margin-bottom: 0.5rem;
     align-self: center;
+}
+.sb-folder-button {
+    border: none;
+    background-color: #dbdbdb;
+    padding: 5px 8px;
+    font-weight: 800;
+}
+.sb-folder-button:hover {
+    background-color: var(--hover);
 }
 .sb-list {
     display: flex;
@@ -25,9 +34,35 @@
 .sb-folder {
     list-style: none;
     font-size:large;
-    padding: 10px;
+    padding: 0.5rem;
 }
 .sb-selected {
     background-color: var(--bg);
     font-weight: 800;
+}
+
+.sb-folderbox {
+    z-index: 9;
+    padding: 0.5rem;
+    display: none;
+}
+.sb-show-folderbox {
+    display: block;
+}
+.sb-folderbox-input {
+    padding: 0.5rem;
+}
+.sb-folderbox-buttons {
+    border: none;
+    padding: 0.5rem;
+    margin: 0.5rem 0 0.5rem 0.5rem;
+}
+#sb-folderbtn-1 {
+    background-color: var(--bg);
+}
+#sb-folderbtn-1 {
+    background-color: #dbdbdb;
+}
+#sb-folderbtn-1:hover {
+    background-color: var(--hover);
 }

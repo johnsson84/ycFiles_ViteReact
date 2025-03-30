@@ -35,6 +35,7 @@ const FileContent = () => {
         }
       );
       setFile(null);
+      getFiles();
     } catch (error) {
       console.log(error);
     }
@@ -42,6 +43,11 @@ const FileContent = () => {
 
   const getFiles = async () => {
     const user = localStorage.getItem("user");
+    
+    if (selectedFolder === "") {
+      return;
+    };
+
     try {
       const res = await axios.get(
         `${
@@ -65,11 +71,10 @@ const FileContent = () => {
     getFiles();
   }, [selectedFolder]);
 
-  return (
-    <div className="filecontent">
-      <div className="fc-box">
-        <div className="fc-header">
-          <h2 className="fc-name">{selectedFolder}:</h2>
+  const fileContentHeader = () => {
+    return (
+      <div className="fc-header">
+          <h2 className="fc-folder-name">{selectedFolder}:</h2>
           <div className="fc-addfiles">
             <button
               className={`fc-add ${file ? "fc-add-show" : ""}`}
@@ -77,12 +82,19 @@ const FileContent = () => {
             >
               Add
             </button>
-            <label className="fc-input-label" for="fc-input">
+            <label className="fc-input-label" htmlFor="fc-input">
               Select File
             </label>
             <input id="fc-input" type="file" onChange={handleFileChange} />
           </div>
         </div>
+    )
+  }
+
+  return (
+    <div className="filecontent">
+      <div className="fc-box">
+        {selectedFolder ? fileContentHeader() : null}
         <div className="fc-content">
           {files &&
             files.map((file) => (

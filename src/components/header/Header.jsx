@@ -1,9 +1,12 @@
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
 
 const Header = () => {
   const navigate = useNavigate();
+  const {setAuthState} = useContext(AuthContext);
 
   const logout = async () => {
     try {
@@ -15,6 +18,11 @@ const Header = () => {
         }
       );
       localStorage.clear();
+      setAuthState({
+        isAuthenticated: false,
+        user: null,
+        roles: [],
+      });
       navigate("/");
     } catch (error) {
       console.log("Logout error: " + error);
