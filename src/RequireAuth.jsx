@@ -7,17 +7,18 @@ function RequireAuth({ children, allowedRoles }) {
   const { authState, setAuthState } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect( () => {
     // Check if user is logged in.
     const checkAuth = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/auth/check`,
+          `${import.meta.env.VITE_API_URL}/auth/check/${localStorage.getItem('user')}`,
           {
             withCredentials: true,
           }
         );
-        setAuthState({
+        console.log(response.data);
+        await setAuthState({
           isAuthenticated: true,
           user: response.data.email,
           roles: response.data.roles,
@@ -38,7 +39,11 @@ function RequireAuth({ children, allowedRoles }) {
     } else {
       setLoading(false);
     }
-  }, [authState.isAuthenticated, setAuthState]);
+  }, []);
+
+  useEffect(() => {
+    console.log(authState);
+  })
 
   if (loading) {
     return <div>Loading...</div>;

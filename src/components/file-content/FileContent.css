@@ -4,21 +4,21 @@
     align-items: start;
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 1rem;
 }
 .fc-box {
     display: flex;
     flex-direction: column;
     background-color: #efefef;
-    padding: 10px;
+    padding: 0.5rem;
     width: 100%;
 }
 .fc-header {
     display: flex;
 
 }
-.fc-name {
-    margin-right: 10px;
+.fc-folder-name {
+    margin-right: 0.5rem;
 }
 .fc-addfiles {
     display: flex;
@@ -56,8 +56,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 10px;
-    padding: 5px;
+    margin: 0.5rem;
+    padding-right: 5px;
 }
 .fc-item {
     padding: 10px;
