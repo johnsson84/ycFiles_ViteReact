@@ -31,10 +31,19 @@
     display: flex;
     flex-direction: column;
 }
+.sb-list-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.sb-list-section2 {
+    display: flex;
+}
 .sb-folder {
     list-style: none;
     font-size:large;
     padding: 0.5rem;
+    width: 100%;
 }
 .sb-selected {
     background-color: var(--bg);
@@ -64,5 +73,28 @@
     background-color: #dbdbdb;
 }
 #sb-folderbtn-1:hover {
+    background-color: var(--hover);
+}
+
+.sb-delete {
+    border: none;
+    background-color: #dbdbdb;
+}
+.sb-delete:hover {
+    background-color: lightcoral;
+} 
+
+.sb-delFolder {
+    display: flex;
+    justify-content: space-around;
+    background-color: bisque;
+}
+.sb-delFolder-buttons {
+    border: none;
+    background-color: #dbdbdb;
+    padding: 0.2rem;
+    margin: 0.2rem 0 0.2rem 0.2rem;
+}
+.sb-delFolder-buttons:hover {
     background-color: var(--hover);
 }

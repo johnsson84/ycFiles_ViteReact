@@ -69,7 +69,7 @@ const FileContent = () => {
 
   useEffect(() => {
     getFiles();
-  }, [selectedFolder]);
+  }, [selectedFolder, folders]);
 
   const fileContentHeader = () => {
     return (
