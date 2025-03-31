@@ -4,9 +4,8 @@ import { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 const FileContent = () => {
-  const { folders, selectedFolder } = useContext(FileContext);
+  const { folders, selectedFolder, files, setFiles } = useContext(FileContext);
   const [file, setFile] = useState(null);
-  const [files, setFiles] = useState([]);
 
   const handleFileChange = (e) => {
     if (e.target.files) {

@@ -3,8 +3,7 @@ import "./Sidebar.css";
 import { useContext, useEffect, useState } from "react";
 
 const Sidebar = () => {
-    const { folders, setFolders, setSelectedFolder, selectedFolder } =
-        useContext(FileContext);
+    const { folders, setFolders, setSelectedFolder, selectedFolder, setFiles } = useContext(FileContext);
     const [showFolderBox, setShowFolderBox] = useState(false);
     const [newFolder, setNewFolder] = useState("");
     const [folderToDelete, setFolderToDelete] = useState("");
@@ -137,13 +136,15 @@ const Sidebar = () => {
         };
 
         try {
-          
             const res = await fetch(`${import.meta.env.VITE_API_URL}/files/delete/${user}/${folderToDelete}`,
                 options
             );
             setFolders((prev) => prev.filter((folder) => folder.name !== folderToDelete));
+            if (selectedFolder === folderToDelete) {
+              setFiles([]);
+              setSelectedFolder('');
+            }
             setFolderToDelete("");
-            setSelectedFolder('');
         } catch (fetchError) {
             console.log(fetchError);
         }
