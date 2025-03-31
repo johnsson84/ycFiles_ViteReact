@@ -15,10 +15,10 @@
 }
 .fc-header {
     display: flex;
-
 }
 .fc-folder-name {
     margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 .fc-addfiles {
     display: flex;
@@ -56,11 +56,44 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0.5rem;
-    padding-right: 5px;
+    padding-right: 0.5rem auto;
+}
+
+.fc-item-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.fc-item-row2 {
+    display: flex;
+}
+.fc-item-row2 img {
+    background-color: white;
 }
 .fc-item {
-    padding: 10px;
+    width: 100%;
+    padding: 0.5rem;
     background-color: rgb(255, 255, 255);
-    margin-right: 5px;
+}
+.fc-delete {
+    border: none;
+    background-color: white;
+}
+.fc-delete img {
+    background-color: #00000000;
+}
+.fc-delete:hover {
+    background-color: lightcoral;
+}
+.fc-delete img {
+}
+
+.fc-delFolder {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: bisque;
+}
+.fc-delFolder-buttons {
+    margin: 0.5rem;
 }
