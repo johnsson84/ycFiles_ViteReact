@@ -3,7 +3,8 @@ import "./Sidebar.css";
 import { useContext, useEffect, useState } from "react";
 
 const Sidebar = () => {
-    const { folders, setFolders, setSelectedFolder, selectedFolder, setFiles } = useContext(FileContext);
+    const { folders, setFolders, setSelectedFolder, selectedFolder, setFiles } =
+        useContext(FileContext);
     const [showFolderBox, setShowFolderBox] = useState(false);
     const [newFolder, setNewFolder] = useState("");
     const [folderToDelete, setFolderToDelete] = useState("");
@@ -102,6 +103,37 @@ const Sidebar = () => {
         }
     };
 
+    const deleteFolder = async () => {
+        const user = localStorage.getItem("user");
+
+        const options = {
+            method: "DELETE", // Specify the HTTP method
+            credentials: "include", // Allow cookies to be sent with the request
+            headers: {
+                "Content-Type": "application/json", // Set the content type to JSON
+            },
+        };
+
+        try {
+            const res = await fetch(
+                `${
+                    import.meta.env.VITE_API_URL
+                }/files/delete/${user}/${folderToDelete}`,
+                options
+            );
+            setFolders((prev) =>
+                prev.filter((folder) => folder.name !== folderToDelete)
+            );
+            if (selectedFolder === folderToDelete) {
+                setFiles([]);
+                setSelectedFolder("");
+            }
+            setFolderToDelete("");
+        } catch (fetchError) {
+            console.log(fetchError);
+        }
+    };
+
     const showDeleteFolderBox = () => {
         return (
             <div className="sb-delFolder">
@@ -124,32 +156,6 @@ const Sidebar = () => {
         );
     };
 
-    const deleteFolder = async () => {
-        const user = localStorage.getItem("user");
-        
-        const options = {
-            method: "DELETE", // Specify the HTTP method
-            credentials: "include", // Allow cookies to be sent with the request
-            headers: {
-                "Content-Type": "application/json", // Set the content type to JSON
-            },
-        };
-
-        try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/files/delete/${user}/${folderToDelete}`,
-                options
-            );
-            setFolders((prev) => prev.filter((folder) => folder.name !== folderToDelete));
-            if (selectedFolder === folderToDelete) {
-              setFiles([]);
-              setSelectedFolder('');
-            }
-            setFolderToDelete("");
-        } catch (fetchError) {
-            console.log(fetchError);
-        }
-    };
-
     useEffect(() => {
         getFolder();
     }, []);
@@ -165,6 +171,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <nav className="sb-nav">
                 <h2 className="sb-folder-name">
+                    <img src="/src/assets/folder.svg" width="20rem" />
                     Folders{" "}
                     <button
                         className="sb-folder-button"
@@ -179,6 +186,10 @@ const Sidebar = () => {
                         folders.map((folder) => (
                             <div className="sb-list-section">
                                 <div className="sb-list-section2">
+                                    <img
+                                        src="/src/assets/folder.svg"
+                                        width="20rem"
+                                    />
                                     <li
                                         className={`sb-folder ${
                                             selectedFolder === folder.name
