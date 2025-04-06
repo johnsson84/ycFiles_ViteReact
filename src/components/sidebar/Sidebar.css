@@ -13,6 +13,7 @@
     background-color: #efefef;
     padding: 0.5rem;
     width: 100%;
+    border-radius: 7px;
 }
 .sb-folder-name {
     margin-bottom: 0.5rem;
@@ -23,6 +24,7 @@
     background-color: #dbdbdb;
     padding: 5px 8px;
     font-weight: 800;
+    border-radius: 4px;
 }
 .sb-folder-button:hover {
     background-color: var(--hover);
@@ -30,6 +32,9 @@
 .sb-list {
     display: flex;
     flex-direction: column;
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px;
 }
 .sb-list-section {
     display: flex;
@@ -46,7 +51,6 @@
     width: 100%;
 }
 .sb-selected {
-    background-color: var(--bg);
     font-weight: 800;
 }
 
@@ -69,22 +73,26 @@
 
 .sb-delete {
     border: none;
-    background-color: #dbdbdb;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0 5px 0 5px;
 }
 .sb-delete:hover {
     background-color: lightcoral;
+    border-radius: 4px;
 } 
 
 .sb-delFolder {
     display: flex;
     justify-content: space-around;
     background-color: bisque;
+    border-radius: 4px;
 }
 .sb-delFolder-buttons {
     border: none;
     background-color: #dbdbdb;
     padding: 0.2rem;
     margin: 0.2rem 0 0.2rem 0.2rem;
+    border-radius: 4px;
 }
 .sb-delFolder-buttons:hover {
     background-color: var(--hover);
