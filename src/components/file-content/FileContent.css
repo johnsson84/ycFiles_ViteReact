@@ -75,9 +75,15 @@
     padding: 0.5rem;
     background-color: rgb(255, 255, 255);
 }
-.fc-delete {
+.fc-delete, .fc-download {
     border: none;
     background-color: white;
+}
+.fc-download img {
+    background-color: rgba(0, 0, 0, 0);
+}
+.fc-download:hover {
+    background-color: var(--hover);
 }
 .fc-delete img {
     background-color: #00000000;
