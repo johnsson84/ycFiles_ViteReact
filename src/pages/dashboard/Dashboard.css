@@ -15,6 +15,7 @@
     -webkit-box-shadow: 5px 5px 5px 2px rgba(68,68,68,0.75);
     -moz-box-shadow: 5px 5px 5px 2px rgba(68,68,68,0.75);
     background-color: rgb(255, 255, 255);
+    border-radius: 7px;
 }
 .db-header {
     width: 100%;

@@ -27,8 +27,9 @@
 
 .header-logout {
   border: none;
-  background-color: var(--bg);
+  background-color: var(--button);
   padding: 5px;
+  border-radius: 4px;
 }
 .header-logout:hover {
   background-color: var(--hover);

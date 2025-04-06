@@ -10,14 +10,15 @@ const FileContent = () => {
     const [fileToDelete, setFileToDelete] = useState(null);
     const [user, setUser] = useState(localStorage.getItem("user"));
 
-    const handleFileChange = (e) => {
+    const handleUploadFile = (e) => {
         if (e.target.files) {
             setFile(e.target.files[0]);
         }
     };
 
-    const handleUploadClick = async () => {
+    const uploadFile = async () => {
         if (!file) {
+            console.log('no file selected')
             return;
         }
 
@@ -157,25 +158,29 @@ const FileContent = () => {
         getFiles();
     }, [selectedFolder, folders]);
 
+    useEffect(() => {
+        if(file) {
+            uploadFile();
+        }
+    }, [file])
+
     const fileContentHeader = () => {
         return (
             <div className="fc-header">
                 <img src="/src/assets/folder.svg" width="20rem" />
                 <h2 className="fc-folder-name">{selectedFolder}</h2>
                 <div className="fc-addfiles">
-                    <button
-                        className={`fc-add ${file ? "fc-add-show" : ""}`}
-                        onClick={handleUploadClick}
-                    >
-                        Add
-                    </button>
-                    <label className="fc-input-label" htmlFor="fc-input">
-                        Select File
+                    <label className="fc-upload" htmlFor="fc-input">
+                        <img
+                            src="src/assets/upload.svg"
+                            width="30rem"
+                            className="fc-upload"
+                        />
                     </label>
                     <input
                         id="fc-input"
                         type="file"
-                        onChange={handleFileChange}
+                        onChange={handleUploadFile}
                     />
                 </div>
             </div>
