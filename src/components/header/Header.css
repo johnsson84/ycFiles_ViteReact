@@ -1,13 +1,9 @@
 .header {
   display: flex;
-  height: 100%;
-  width: 100%;
 }
 
 .header-appname {
-  flex: auto;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   padding: 20px;
 }
@@ -18,11 +14,8 @@
 }
 
 .header-user {
-  padding: 20px 20px 0 20px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: end;
 }
 
 .header-logout {
@@ -33,4 +26,39 @@
 }
 .header-logout:hover {
   background-color: var(--hover);
+}
+@media (min-width: 651px) {
+  .header {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .header-appname {
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+  }
+  .header-user {
+    padding: 1rem 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+@media (max-width: 650px) {
+  .header {
+    flex-direction: column;
+  }
+  .header-appname {
+    flex-direction: column;
+    padding: 1rem 1rem 0 1rem;
+  }
+  .header-user {
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+  }
 }
